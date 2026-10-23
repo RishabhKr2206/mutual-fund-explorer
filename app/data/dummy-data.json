@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Axis Bluechip Fund",
+    "category": "Equity",
+    "risk": "High",
+    "return3Y": 14.8,
+    "rating": 4.5,
+    "minimumInvestment": 500,
+    "popularity": 95
+  },
+  {
+    "id": 2,
+    "name": "HDFC Corporate Bond Fund",
+    "category": "Debt",
+    "risk": "Low",
+    "return3Y": 7.2,
+    "rating": 4.3,
+    "minimumInvestment": 1000,
+    "popularity": 75
+  },
+  {
+    "id": 3,
+    "name": "SBI Balanced Advantage Fund",
+    "category": "Hybrid",
+    "risk": "Moderate",
+    "return3Y": 11.6,
+    "rating": 4.1,
+    "minimumInvestment": 500,
+    "popularity": 88
+  },
+  {
+    "id": 4,
+    "name": "UTI Nifty 50 Index Fund",
+    "category": "Index Funds",
+    "risk": "High",
+    "return3Y": 13.4,
+    "rating": 4.4,
+    "minimumInvestment": 500,
+    "popularity": 92
+  },
+  {
+    "id": 5,
+    "name": "ICICI Prudential Technology Fund",
+    "category": "Equity",
+    "risk": "Very High",
+    "return3Y": 18.7,
+    "rating": 4.6,
+    "minimumInvestment": 1000,
+    "popularity": 82
+  },
+  {
+    "id": 6,
+    "name": "Kotak Short Duration Fund",
+    "category": "Debt",
+    "risk": "Low",
+    "return3Y": 6.8,
+    "rating": 4.0,
+    "minimumInvestment": 1000,
+    "popularity": 65
+  }
+]

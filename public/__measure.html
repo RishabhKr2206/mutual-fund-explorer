@@ -1,0 +1,18 @@
+<html><body><iframe id="f" src="/" style="width:1920px;height:1080px;border:0"></iframe><pre id="out"></pre>
+<script>
+document.getElementById('f').addEventListener('load', function(){
+  var f=this; setTimeout(function(){
+    var d=f.contentDocument, w=f.contentWindow, r=[];
+    function m(label, el){ if(!el) return; var b=el.getBoundingClientRect(), cs=w.getComputedStyle(el); r.push(label+': '+Math.round(b.width*100)/100+'x'+Math.round(b.height*100)/100+' top='+Math.round(b.top+w.scrollY)+' bg='+cs.backgroundColor+' font='+cs.fontFamily.slice(0,40)+' '+cs.fontSize+'/'+cs.lineHeight+' color='+cs.color); }
+    m('html', d.documentElement); m('body', d.body); m('page div', d.body.firstElementChild);
+    m('header', d.querySelector('header')); m('main', d.querySelector('main'));
+    m('hero section', d.querySelector('section[aria-labelledby=hero-title]'));
+    m('breadcrumb bar', d.querySelector('section[aria-labelledby=hero-title] > div'));
+    m('explore', d.getElementById('explore')); m('banner', d.querySelector('section[aria-labelledby=cta-title]')); m('footer', d.querySelector('footer'));
+    var main=d.querySelector('main').getBoundingClientRect(), hdr=d.querySelector('header').getBoundingClientRect();
+    r.push('header+main: '+(main.height+hdr.height));
+    r.push('hero+explore: '+(d.querySelector('section[aria-labelledby=hero-title]').getBoundingClientRect().height+d.getElementById('explore').getBoundingClientRect().height));
+    document.getElementById('out').textContent=r.join('\n');
+  }, 2500);
+});
+</script></body></html>

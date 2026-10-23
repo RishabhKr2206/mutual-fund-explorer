@@ -1,26 +1,136 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/*
+ * Token values live in app/theme/theme.ts and are injected on <html> as
+ * `--fw-*` variables (see app/layout.tsx). This block only maps them onto
+ * Tailwind utilities, e.g. `bg-primary`, `text-display`, `h-header`, `max-w-page`.
+ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --spacing: var(--fw-spacing-unit);
+
+  --color-primary: var(--fw-color-primary);
+  --color-primary-hover: var(--fw-color-primary-hover);
+  --color-primary-soft: var(--fw-color-primary-soft);
+  --color-background: var(--fw-color-background);
+  --color-heading: var(--fw-color-heading);
+  --color-ink: var(--fw-color-ink);
+  --color-body: var(--fw-color-body);
+  --color-muted: var(--fw-color-muted);
+  --color-subtle: var(--fw-color-subtle);
+  --color-inverse: var(--fw-color-inverse);
+  --color-menu-text: var(--fw-color-menu-text);
+  --color-menu-hover: var(--fw-color-menu-hover);
+  --color-surface: var(--fw-color-surface);
+  --color-surface-subtle: var(--fw-color-surface-subtle);
+  --color-surface-hero: var(--fw-color-surface-hero);
+  --color-surface-muted: var(--fw-color-surface-muted);
+  --color-chart-bar: var(--fw-color-chart-bar);
+  --color-border: var(--fw-color-border);
+  --color-input-border: var(--fw-color-input-border);
+  --color-card-border: var(--fw-color-card-border);
+  --color-card-border-hover: var(--fw-color-card-border-hover);
+  --color-outline: var(--fw-color-outline);
+  --color-placeholder: var(--fw-color-placeholder);
+  --color-chip: var(--fw-color-chip);
+  --color-chip-text: var(--fw-color-chip-text);
+  --color-star: var(--fw-color-star);
+  --color-star-empty: var(--fw-color-star-empty);
+  --color-accent: var(--fw-color-accent);
+  --color-on-primary-muted: var(--fw-color-on-primary-muted);
+  --color-on-primary-overlay: var(--fw-color-on-primary-overlay);
+  --color-success: var(--fw-color-success);
+  --color-success-soft: var(--fw-color-success-soft);
+  --color-warning: var(--fw-color-warning);
+  --color-warning-soft: var(--fw-color-warning-soft);
+  --color-danger: var(--fw-color-danger);
+  --color-danger-soft: var(--fw-color-danger-soft);
+
+  --container-page: var(--fw-container-page);
+  --container-hero-content: var(--fw-container-hero-content);
+  --container-hero-card: var(--fw-container-hero-card);
+  --container-hero-card-mobile: var(--fw-container-hero-card-mobile);
+  --container-search-compact: var(--fw-container-search-compact);
+  --container-banner-content: var(--fw-container-banner-content);
+  --container-footer-brand: var(--fw-container-footer-brand);
+
+  --spacing-header: var(--fw-size-header);
+  --spacing-header-mobile: var(--fw-size-header-mobile);
+  --spacing-breadcrumb: var(--fw-size-breadcrumb);
+  --spacing-logo-mark: var(--fw-size-logo-mark);
+  --spacing-icon-sm: var(--fw-size-icon-sm);
+  --spacing-icon-base: var(--fw-size-icon-base);
+  --spacing-icon-md: var(--fw-size-icon-md);
+  --spacing-button-sm: var(--fw-size-button-sm);
+  --spacing-button-md: var(--fw-size-button-md);
+  --spacing-button-lg: var(--fw-size-button-lg);
+  --spacing-input: var(--fw-size-input);
+  --spacing-input-mobile: var(--fw-size-input-mobile);
+  --spacing-chart: var(--fw-size-chart);
+  --spacing-fund-icon: var(--fw-size-fund-icon);
+  --spacing-banner-icon: var(--fw-size-banner-icon);
+  --spacing-banner-min: var(--fw-size-banner-min);
+  --spacing-star: var(--fw-size-star);
+  --spacing-gutter: var(--fw-size-gutter);
+
+  --radius-sm: var(--fw-radius-sm);
+  --radius-md: var(--fw-radius-md);
+  --radius-lg: var(--fw-radius-lg);
+  --radius-xl: var(--fw-radius-xl);
+  --radius-full: var(--fw-radius-full);
+
+  --shadow-input: var(--fw-shadow-input);
+  --shadow-card: var(--fw-shadow-card);
+  --shadow-menu: var(--fw-shadow-menu);
+  --shadow-fund-card: var(--fw-shadow-fund-card);
+  --shadow-fund-card-hover: var(--fw-shadow-fund-card-hover);
+
+  --font-sans: var(--fw-font-sans);
+  --font-serif: var(--fw-font-serif);
+
+  --tracking-eyebrow: var(--fw-tracking-eyebrow);
+  --tracking-tight: var(--fw-tracking-tight);
+
+  --text-*: initial;
+  --text-2xs: var(--fw-text-2xs-size);
+  --text-2xs--line-height: var(--fw-text-2xs-line-height);
+  --text-xs: var(--fw-text-xs-size);
+  --text-xs--line-height: var(--fw-text-xs-line-height);
+  --text-sm: var(--fw-text-sm-size);
+  --text-sm--line-height: var(--fw-text-sm-line-height);
+  --text-base: var(--fw-text-base-size);
+  --text-base--line-height: var(--fw-text-base-line-height);
+  --text-md: var(--fw-text-md-size);
+  --text-md--line-height: var(--fw-text-md-line-height);
+  --text-lg: var(--fw-text-lg-size);
+  --text-lg--line-height: var(--fw-text-lg-line-height);
+  --text-xl: var(--fw-text-xl-size);
+  --text-xl--line-height: var(--fw-text-xl-line-height);
+  --text-2xl: var(--fw-text-2xl-size);
+  --text-2xl--line-height: var(--fw-text-2xl-line-height);
+  --text-display-sm: var(--fw-text-display-sm-size);
+  --text-display-sm--line-height: var(--fw-text-display-sm-line-height);
+  --text-display-md: var(--fw-text-display-md-size);
+  --text-display-md--line-height: var(--fw-text-display-md-line-height);
+  --text-display: var(--fw-text-display-size);
+  --text-display--line-height: var(--fw-text-display-line-height);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Media queries can't read CSS variables; mirrors `breakpoints` in theme.ts. */
+@theme {
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 96rem;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--fw-color-background);
+  color: var(--fw-color-ink);
+  font-family: var(--fw-font-sans);
+  -webkit-font-smoothing: antialiased;
 }
